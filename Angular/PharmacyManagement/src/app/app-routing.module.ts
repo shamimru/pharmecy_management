@@ -8,13 +8,19 @@ import { SaleComponent } from './components/admin/sale/sale.component';
 import { SaleReportComponent } from './components/admin/sale-report/sale-report.component';
 import { PurchaseReportComponent } from './components/admin/purchase-report/purchase-report.component';
 import { PurchaseReturnComponent } from './components/admin/purchase-return/purchase-return.component';
+import { UserComponent } from './components/user/user.component';
+import { AllProductsComponent } from './components/user/all-products/all-products.component';
 
 const routes: Routes = [
 
 {path:"",component:LoginComponent},
+{path:"user",component:UserComponent,
+  children:[
+    {path:"",component:AllProductsComponent},
+  ]
+},
 {path:"admin",component:AdminComponent,
   children:[
-
     {path:"supplier",component:SupplierComponent},
     {path:"purchase",component:PurchaseComponent},
     {path:"sale",component:SaleComponent},

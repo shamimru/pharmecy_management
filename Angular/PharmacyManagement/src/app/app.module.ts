@@ -14,6 +14,8 @@ import { SaleComponent } from './components/admin/sale/sale.component';
 import { SaleReportComponent } from './components/admin/sale-report/sale-report.component';
 import { PurchaseReportComponent } from './components/admin/purchase-report/purchase-report.component';
 import { PurchaseReturnComponent } from './components/admin/purchase-return/purchase-return.component';
+import { UserComponent } from './components/user/user.component';
+import { AllProductsComponent } from './components/user/all-products/all-products.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PurchaseReturnComponent } from './components/admin/purchase-return/purc
     SaleComponent,
     SaleReportComponent,
     PurchaseReportComponent,
-    PurchaseReturnComponent
+    PurchaseReturnComponent,
+    UserComponent,
+    AllProductsComponent
   ],
   imports: [
     BrowserModule,
