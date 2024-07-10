@@ -65,6 +65,11 @@ saveSale(sale:any):Observable<any>{
   this.url="http://localhost:8080/save-sale";
   return this.http.post<any>(this.url,sale);
 }
+//==========================================Sale =====================================================
+saveOrder(sale:any):Observable<any>{
+  this.url="http://localhost:8080/save-order";
+  return this.http.post<any>(this.url,sale);
+}
 
 
 //=================================Repport=============================================

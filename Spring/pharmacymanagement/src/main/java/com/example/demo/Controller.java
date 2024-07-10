@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DAO.CustomerDAO;
+import com.example.demo.DAO.OrderDAO;
 import com.example.demo.DAO.PurchaseDAO;
 import com.example.demo.DAO.PurchaseReportDAO;
 import com.example.demo.DAO.SaleDAO;
@@ -19,6 +20,7 @@ import com.example.demo.DAO.StockDAO;
 import com.example.demo.DAO.SupplierDAO;
 import com.example.demo.DAO.UserDAO;
 import com.example.demo.Entity.Customer;
+import com.example.demo.Entity.Order;
 import com.example.demo.Entity.Purchase;
 import com.example.demo.Entity.PurchaseReport;
 import com.example.demo.Entity.Sale;
@@ -114,6 +116,13 @@ public class Controller {
 		dao.createSale(s);
 		StockDAO stock = new StockDAO();
 		stock.updateSaleData(s);
+	}
+	
+	//========================new Order==================
+	@PostMapping("/save-order")
+	public void saveOrder(@RequestBody List<Order> s) {
+		OrderDAO dao = new OrderDAO();
+		dao.saveOrder(s);
 	}
 	
 	

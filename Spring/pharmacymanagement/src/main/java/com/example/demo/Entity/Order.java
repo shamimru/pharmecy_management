@@ -10,12 +10,13 @@ public class Order {
 	Double total;
 	Date saleDate;
 	int customerId;
+	String invoice_no;
 	String status;
 	public Order() {
 		super();
 	}
 	public Order(int order_id, int stockId, int qty, Double rate, Double total, Date saleDate, int customerId,
-			String status) {
+			String invoice_no, String status) {
 		super();
 		this.order_id = order_id;
 		this.stockId = stockId;
@@ -24,7 +25,14 @@ public class Order {
 		this.total = total;
 		this.saleDate = saleDate;
 		this.customerId = customerId;
+		this.invoice_no = invoice_no;
 		this.status = status;
+	}
+	public String getInvoice_no() {
+		return invoice_no;
+	}
+	public void setInvoice_no(String invoice_no) {
+		this.invoice_no = invoice_no;
 	}
 	public int getOrder_id() {
 		return order_id;
@@ -77,7 +85,8 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [order_id=" + order_id + ", stockId=" + stockId + ", qty=" + qty + ", rate=" + rate + ", total="
-				+ total + ", saleDate=" + saleDate + ", customerId=" + customerId + ", status=" + status + "]";
+				+ total + ", saleDate=" + saleDate + ", customerId=" + customerId + ", invoice_no=" + invoice_no
+				+ ", status=" + status + "]";
 	}
 	
 
