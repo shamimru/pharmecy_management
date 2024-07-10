@@ -65,10 +65,28 @@ saveSale(sale:any):Observable<any>{
   this.url="http://localhost:8080/save-sale";
   return this.http.post<any>(this.url,sale);
 }
-//==========================================Sale =====================================================
+//==========================================Save sale order =====================================================
 saveOrder(sale:any):Observable<any>{
   this.url="http://localhost:8080/save-order";
   return this.http.post<any>(this.url,sale);
+}
+
+//==========================================Get orders =====================================================
+getOrders(s:any):Observable<any>{
+  this.url="http://localhost:8080/get-order/"+s;
+  return this.http.get<any>(this.url);
+}
+
+//==========================================Get orders =====================================================
+getOrderDetails(invoice:any,status:any):Observable<any>{
+  this.url="http://localhost:8080/get-order-details/"+invoice+"/"+status;
+  return this.http.get<any>(this.url);
+}
+
+//==========================================Get orders =====================================================
+updateOrders(id:any,status:any):Observable<any>{
+  this.url="http://localhost:8080/update-order/"+id+"/"+status;
+  return this.http.get<any>(this.url);
 }
 
 

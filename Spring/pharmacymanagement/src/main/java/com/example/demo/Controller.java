@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.DAO.CustomerDAO;
 import com.example.demo.DAO.OrderDAO;
+import com.example.demo.DAO.OrderDetailsDAO;
 import com.example.demo.DAO.PurchaseDAO;
 import com.example.demo.DAO.PurchaseReportDAO;
 import com.example.demo.DAO.SaleDAO;
@@ -19,8 +20,10 @@ import com.example.demo.DAO.SaleReportDAO;
 import com.example.demo.DAO.StockDAO;
 import com.example.demo.DAO.SupplierDAO;
 import com.example.demo.DAO.UserDAO;
+import com.example.demo.DAO.UserOrderDAO;
 import com.example.demo.Entity.Customer;
 import com.example.demo.Entity.Order;
+import com.example.demo.Entity.OrderDetails;
 import com.example.demo.Entity.Purchase;
 import com.example.demo.Entity.PurchaseReport;
 import com.example.demo.Entity.Sale;
@@ -28,6 +31,7 @@ import com.example.demo.Entity.SaleReport;
 import com.example.demo.Entity.Stock;
 import com.example.demo.Entity.Supplier;
 import com.example.demo.Entity.User;
+import com.example.demo.Entity.UserOrder;
 
 @RestController
 
@@ -125,6 +129,32 @@ public class Controller {
 		dao.saveOrder(s);
 	}
 	
+	//========================new Order==================
+	@GetMapping("/get-order/{s}")
+		public  List<UserOrder> getOrder(@PathVariable String s) {
+		System.out.println("get orders status => "+s);
+			UserOrderDAO dao = new UserOrderDAO();
+			List<UserOrder> userOrder = dao.getUserOrder(s);
+			return userOrder;
+		}
+	
+	//======================== Order Details==================
+		@GetMapping("/get-order-details/{invoice}/{status}")
+			public  List<OrderDetails> getOrderDetails(@PathVariable String invoice, @PathVariable String status) {
+			System.out.println("get orders details invoice => "+invoice);
+				OrderDetailsDAO dao = new OrderDetailsDAO();
+				List<OrderDetails> userOrder = dao.getAllOrderDetails(invoice,status);
+				return userOrder;
+			}
+		
+		//======================== Order Details==================
+				@GetMapping("/update-order/{id}/{status}")
+					public  void updateOrders(@PathVariable int id, @PathVariable String status) {
+					System.out.println("get orders  id => "+id);
+					UserOrderDAO dao = new UserOrderDAO();
+						dao.updateOrderStatus(id,status);
+					
+					}
 	
 	// ================Purchase report
 	@GetMapping("/purchase-report/{startDate}/{endDate}/{type}/{invoice}")
