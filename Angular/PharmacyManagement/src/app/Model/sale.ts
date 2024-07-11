@@ -8,8 +8,9 @@ export class Sale {
 	 saleDate:any
 	 customerId:any
     invoice_no:any;
+    status:any
 
-     constructor(saleId:any,stockId:any, qty:any, rate:any , total:any, saleDate:any, customerId:any,invoice_no:any){
+     constructor(saleId:any,stockId:any, qty:any, rate:any , total:any, saleDate:any, customerId:any,invoice_no:any,status:any){
         this.saleId=saleId
         this.stockId=stockId
         this.qty=qty
@@ -18,6 +19,7 @@ export class Sale {
         this.saleDate=saleDate
         this.customerId=customerId
         this.invoice_no=invoice_no;
+        this.status=status
         
 
      }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/Model/customer';
 import { ControllerrService } from 'src/app/service/controllerr.service';
 
 @Component({
@@ -40,7 +41,7 @@ export class AllProductsComponent implements OnInit {
   preSaleMedicine: any[] = [];
   preSale: any = { stockId: 7, medicineName: "Rupatadine", genericName: "Rupa", batchId: "R1560", ex_date: "2024-11-30", supplier: "Aristopharma", qty: 20, rate: 75, total: 0 };
   sales: any[] = [];
-  sale: any = { saleId: "", stockId: "", qty: "", rate: "", total: "", saleDate: "", customerId: "",invoice_no:"" };
+  sale: any = { saleId: "", stockId: "", qty: "", rate: "", total: "", saleDate: "", customerId: "",invoice_no:"",status:"" };
 
   add(i:any){
     this.qty= prompt("Quantity")
@@ -83,6 +84,9 @@ export class AllProductsComponent implements OnInit {
         this.sale.total = i.rate * this.qty;
         this.sale.saleDate = this.saleDate;
         this.sale.customerId = "";
+        this.sale.invoice_no = "";
+        this.sale.status = "Requested";
+
         this.sales.push(this.sale);
       }
       this.subTotal = 0;
@@ -100,6 +104,55 @@ export class AllProductsComponent implements OnInit {
   goto(service:any){
       this.service=service;
 
+  }
+
+  //===================================================Customer Section=========================================
+
+
+  customerId: any;
+  name: any = null;
+  phone: any = null;
+  email: any;
+  address: any=null;
+
+  //  constructor(customerId:any, name:any,phone:any,email:any, address:any )
+  newCustomer: any;
+  customer: any;
+  createCustomer() {
+
+  }
+
+  setCustomerIdtoSalesArray() {
+    for (let i = 0; i < this.sales.length; i++) {
+      this.sales.at(i).customerId = this.customer.customerId;
+      alert("Customer Id=>" + this.sales.at(i).customerId)
+    }
+  }
+
+  saveOrder() {
+    alert("Sale Order run")
+    if (this.name != null && this.phone != null && this.address != null) {
+      // alert("Name :"+this.name+"\n Phone:"+this.phone);
+      this.newCustomer = new Customer(this.customerId, this.name, this.phone, this.email, this.address);
+      this.myservice.saveAndGetCustomer(this.newCustomer).subscribe((x) => {
+        this.customer = x;
+        for (let i = 0; i < this.sales.length; i++) {
+          this.sales.at(i).customerId = this.customer.customerId;
+          alert("Customer Id=>" + this.sales.at(i).customerId)
+        };
+        this.myservice.saveOrder(this.sales).subscribe(() => {
+          alert("Thank you");
+          this.sales = [];
+          this.preSaleMedicine = [];
+        });
+      });
+    } else {
+      alert(" Insert Customer Name, Phone No and Address")
+    }
+    this.name = null;
+    this.phone = null;
+    this.address=null;
+    this.subTotal = 0;
   }
 
 
