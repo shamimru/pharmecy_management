@@ -1,15 +1,38 @@
 <div>
-    <button type="button" class="btn btn-outline-success" style="height: 2rem;" (click)="goto('products')">
-        <h3 style="margin-top: -.5rem;"> <i class="bi bi-arrow-left"></i><span class="badge text-dark"></span></h3>
-         <!-- <span class="sr-only">unread messages</span> -->
-       </button>
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-outline-success" style="height: 2rem;" (click)="goto('products')">
+                <h3 style="margin-top: -.5rem;"> <i class="bi bi-arrow-left"></i><span class="badge text-dark"></span></h3>
+                 <!-- <span class="sr-only">unread messages</span> -->
+               </button>
+        </div>
+        <div class="col d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-primary me-2"  (click)="showOrders('Requested')">
+                 Orders
+                <!-- <h3 style="margin-top: -.5rem;"> <i class="bi bi-arrow-left"></i><span class="badge text-dark"></span></h3> -->
+                 <!-- <span class="sr-only">unread messages</span> -->
+               </button>
+            <button type="button" class="btn btn-outline-success me-2"  (click)="prcessingOrders('Processing')">
+                Peocessing Order
+                <!-- <h3 style="margin-top: -.5rem;"> <i class="bi bi-arrow-left"></i><span class="badge text-dark"></span></h3> -->
+                 <!-- <span class="sr-only">unread messages</span> -->
+               </button>
+            <button type="button" class="btn btn-outline-danger"  (click)="cancelOrders('Canceled')">
+                Cancel Order
+                <!-- <h3 style="margin-top: -.5rem;"> <i class="bi bi-arrow-left"></i><span class="badge text-dark"></span></h3> -->
+                 <!-- <span class="sr-only">unread messages</span> -->
+               </button>
+           </div>
+    </div>
+    
+       
     <ng-template [ngIf]="service=='order-summery'">
         <div>
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">Serial No</th>
-                    <th scope="col">Order Id</th>
+                    <!-- <th scope="col">Order Id</th> -->
                     <th scope="col">Invoice No</th>
                     <th scope="col">Customer Name</th>
                     <th scope="col">Customer Phone </th>
@@ -21,7 +44,7 @@
                 <tbody>
                  <tr *ngFor="let i of orderSummary; let x=index;">
                     <th scope="row">{{x+1}}</th>
-                    <td>{{i.orderId}}</td>
+                    <!-- <td>{{i.orderId}}</td> -->
                     <td>{{i.invoiceNO}}</td>
                     <td>{{i.customerName}}</td>
                     <td>{{i.customerPhone}}</td>
@@ -124,8 +147,8 @@
                 </tbody>
               </table>
               <div>
-                <button type="button" class="btn btn-outline-primary" (click)="cancelallORders()">Confirm Order</button> 
-                <button type="button" class="btn btn-outline-primary" (click)="confirmOrder()">Cancel Order</button> 
+                <button type="button" class="btn btn-outline-primary" (click)="confirmOrder()">Confirm Order</button> 
+                <button type="button" class="btn btn-outline-primary" (click)="cancelallORders()">Cancel Order</button> 
               </div>
         </div>
     </ng-template>

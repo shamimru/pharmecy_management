@@ -142,6 +142,7 @@ public class Controller {
 		@GetMapping("/get-order-details/{invoice}/{status}")
 			public  List<OrderDetails> getOrderDetails(@PathVariable String invoice, @PathVariable String status) {
 			System.out.println("get orders details invoice => "+invoice);
+			System.out.println("get orders details status => "+status);
 				OrderDetailsDAO dao = new OrderDetailsDAO();
 				List<OrderDetails> userOrder = dao.getAllOrderDetails(invoice,status);
 				return userOrder;

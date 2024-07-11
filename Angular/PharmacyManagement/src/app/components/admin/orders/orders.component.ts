@@ -36,10 +36,11 @@ export class OrdersComponent implements OnInit {
     this.myservice.updateOrders(orderId,this.status).subscribe(()=>{
       alert("Canceled");
       this.showDetails(invoiceNo);
-    })
+    });
+    this.status="Requested"
   }
 
-  async cancelallORders(){
+  cancelallORders(){
     for(let i of this.orderDetails){
        this.cancelOrder(i.orderId,i.invoice);
     }
@@ -51,6 +52,36 @@ export class OrdersComponent implements OnInit {
     this.service="order-summery";
 
   }
+
+
+
+  showOrders(status:any){
+    this.status=status;
+    this.service="order-summery";
+    this.myservice.getOrders(status).subscribe((x)=>{
+      this.orderSummary=x;
+    });
+  }
+
+
+  prcessingOrders(status:any){
+    this.status=status;
+    this.service="order-summery";
+    this.myservice.getOrders(status).subscribe((x)=>{
+      this.orderSummary=x;
+    });
+  }
+
+
+  cancelOrders(status:any){
+    this.status=status;
+    this.service="order-summery";
+    this.myservice.getOrders(status).subscribe((x)=>{
+      this.orderSummary=x;
+    });
+  }
+
+
 
   confirmOrder(){
     this.status="Processing"
@@ -66,8 +97,10 @@ export class OrdersComponent implements OnInit {
     })
   }
 
+
+
   showDetails(invoiceNo:any){
-    this.status="Requested";
+    // this.status="Requested";
     this.myservice.getOrderDetails(invoiceNo,this.status).subscribe((x)=>{
       this.orderDetails=x;
       this.subTotal=0;
