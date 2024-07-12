@@ -1,16 +1,19 @@
 package com.example.demo.Entity;
 
+import java.sql.Date;
+
 public class UserOrder {
 	int orderId;
 	String invoiceNO;
 	String customerName;
 	String customerPhone;
 	String customerAddress;
+	Date date;
 	int totalOrder;
 	public UserOrder() {
 		super();
 	}
-	public UserOrder(int orderId, String invoiceNO, String customerName, String customerPhone, String customerAddress,
+	public UserOrder(int orderId, String invoiceNO, String customerName, String customerPhone, String customerAddress,Date date,
 			int totalOrder) {
 		super();
 		this.orderId = orderId;
@@ -18,6 +21,7 @@ public class UserOrder {
 		this.customerName = customerName;
 		this.customerPhone = customerPhone;
 		this.customerAddress = customerAddress;
+		this.date = date;
 		this.totalOrder = totalOrder;
 	}
 	public int getOrderId() {
@@ -50,17 +54,25 @@ public class UserOrder {
 	public void setCustomerAddress(String customerAddress) {
 		this.customerAddress = customerAddress;
 	}
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	public int getTotalOrder() {
 		return totalOrder;
 	}
 	public void setTotalOrder(int totalOrder) {
 		this.totalOrder = totalOrder;
 	}
+	
 	@Override
 	public String toString() {
 		return "UserOrder [orderId=" + orderId + ", invoiceNO=" + invoiceNO + ", customerName=" + customerName
-				+ ", customerPhone=" + customerPhone + ", customerAddress=" + customerAddress + ", totalOrder="
-				+ totalOrder + "]";
+				+ ", customerPhone=" + customerPhone + ", customerAddress=" + customerAddress + ", date=" + date
+				+ ", totalOrder=" + totalOrder + "]";
 	}
 	
 

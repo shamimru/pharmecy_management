@@ -2,11 +2,11 @@ package com.example.demo.DAO;
 
 import java.sql.DriverManager;
 
-import com.example.demo.Entity.AccNo;
+import com.example.demo.Entity.Accounts;
 
 public class AccNoDAO extends MySqlConnection {
 
-	public void saveAccNo(AccNo acc) {
+	public void saveAccNo(Accounts acc) {
 	try {
 		con=DriverManager.getConnection( url,user,pass);  
 //		int accId;

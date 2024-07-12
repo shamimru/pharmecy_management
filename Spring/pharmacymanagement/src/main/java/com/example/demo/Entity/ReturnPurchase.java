@@ -4,117 +4,196 @@ import java.sql.Date;
 
 public class ReturnPurchase {
 
-	int purchasId;
-	Date pursDate;
-	Date return_date;
-	int supllierId;
+	int returnId;
+	Date returnDate;
+	String supplier;
 	String medicineName;
 	int paking;
 	String genericName;
-	int batchId;
+	String batchId;
 	Date exDate;
-	int qty;
-	int mrp;
+	Date pursDate;
+	String invoice;
+	int returnQty;
 	double purchaseRate;
-	public ReturnPurchase() {
-		super();
+	String status;
+	int purshasId;
+	
+
+	@Override
+	public String toString() {
+		return "ReturnPurchase [returnId=" + returnId + ", returnDate=" + returnDate + ", supplier=" + supplier
+				+ ", medicineName=" + medicineName + ", paking=" + paking + ", genericName=" + genericName
+				+ ", batchId=" + batchId + ", exDate=" + exDate + ", pursDate=" + pursDate + ", invoice=" + invoice
+				+ ", returnQty=" + returnQty + ", purchaseRate=" + purchaseRate + ", status=" + status + ", purshasId="
+				+ purshasId + "]";
 	}
-	public ReturnPurchase(int purchasId, Date pursDate, Date return_date, int supllierId, String medicineName,
-			int paking, String genericName, int batchId, Date exDate, int qty, int mrp, double purchaseRate) {
-		super();
-		this.purchasId = purchasId;
-		this.pursDate = pursDate;
-		this.return_date = return_date;
-		this.supllierId = supllierId;
-		this.medicineName = medicineName;
-		this.paking = paking;
-		this.genericName = genericName;
-		this.batchId = batchId;
-		this.exDate = exDate;
-		this.qty = qty;
-		this.mrp = mrp;
-		this.purchaseRate = purchaseRate;
+
+
+	public int getReturnId() {
+		return returnId;
 	}
-	public int getPurchasId() {
-		return purchasId;
+
+
+	public void setReturnId(int returnId) {
+		this.returnId = returnId;
 	}
-	public void setPurchasId(int purchasId) {
-		this.purchasId = purchasId;
+
+
+	public Date getReturnDate() {
+		return returnDate;
 	}
-	public Date getPursDate() {
-		return pursDate;
+
+
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
 	}
-	public void setPursDate(Date pursDate) {
-		this.pursDate = pursDate;
+
+
+	public String getSupplier() {
+		return supplier;
 	}
-	public Date getReturn_date() {
-		return return_date;
+
+
+	public void setSupplier(String supplier) {
+		this.supplier = supplier;
 	}
-	public void setReturn_date(Date return_date) {
-		this.return_date = return_date;
-	}
-	public int getSupllierId() {
-		return supllierId;
-	}
-	public void setSupllierId(int supllierId) {
-		this.supllierId = supllierId;
-	}
+
+
 	public String getMedicineName() {
 		return medicineName;
 	}
+
+
 	public void setMedicineName(String medicineName) {
 		this.medicineName = medicineName;
 	}
+
+
 	public int getPaking() {
 		return paking;
 	}
+
+
 	public void setPaking(int paking) {
 		this.paking = paking;
 	}
+
+
 	public String getGenericName() {
 		return genericName;
 	}
+
+
 	public void setGenericName(String genericName) {
 		this.genericName = genericName;
 	}
-	public int getBatchId() {
+
+
+	public String getBatchId() {
 		return batchId;
 	}
-	public void setBatchId(int batchId) {
+
+
+	public void setBatchId(String batchId) {
 		this.batchId = batchId;
 	}
+
+
 	public Date getExDate() {
 		return exDate;
 	}
+
+
 	public void setExDate(Date exDate) {
 		this.exDate = exDate;
 	}
-	public int getQty() {
-		return qty;
+
+
+	public Date getPursDate() {
+		return pursDate;
 	}
-	public void setQty(int qty) {
-		this.qty = qty;
+
+
+	public void setPursDate(Date pursDate) {
+		this.pursDate = pursDate;
 	}
-	public int getMrp() {
-		return mrp;
+
+
+	public String getInvoice() {
+		return invoice;
 	}
-	public void setMrp(int mrp) {
-		this.mrp = mrp;
+
+
+	public void setInvoice(String invoice) {
+		this.invoice = invoice;
 	}
+
+
+	public int getReturnQty() {
+		return returnQty;
+	}
+
+
+	public void setReturnQty(int returnQt) {
+		this.returnQty = returnQt;
+	}
+
+
 	public double getPurchaseRate() {
 		return purchaseRate;
 	}
+
+
 	public void setPurchaseRate(double purchaseRate) {
 		this.purchaseRate = purchaseRate;
 	}
-	@Override
-	public String toString() {
-		return "ReturnPurchase [purchasId=" + purchasId + ", pursDate=" + pursDate + ", return_date=" + return_date
-				+ ", supllierId=" + supllierId + ", medicineName=" + medicineName + ", paking=" + paking
-				+ ", genericName=" + genericName + ", batchId=" + batchId + ", exDate=" + exDate + ", qty=" + qty
-				+ ", mrp=" + mrp + ", purchaseRate=" + purchaseRate + "]";
-	}
-	
-	
 
+
+	public String getStatus() {
+		return status;
+	}
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
+	public int getPurshasId() {
+		return purshasId;
+	}
+
+
+	public void setPurshasId(int purshasId) {
+		this.purshasId = purshasId;
+	}
+
+
+	public ReturnPurchase(int returnId, Date returnDate, String supplier, String medicineName, int paking,
+			String genericName, String batchId, Date exDate, Date pursDate, String invoice, int returnQty,
+			double purchaseRate, String status, int purshasId) {
+		super();
+		this.returnId = returnId;
+		this.returnDate = returnDate;
+		this.supplier = supplier;
+		this.medicineName = medicineName;
+		this.paking = paking;
+		this.genericName = genericName;
+		this.batchId = batchId;
+		this.exDate = exDate;
+		this.pursDate = pursDate;
+		this.invoice = invoice;
+		this.returnQty = returnQty;
+		this.purchaseRate = purchaseRate;
+		this.status = status;
+		this.purshasId = purshasId;
+	}
+
+
+	public ReturnPurchase() {
+		super();
+	}
+
+	
 }

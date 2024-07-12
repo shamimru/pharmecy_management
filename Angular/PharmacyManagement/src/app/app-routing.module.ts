@@ -12,6 +12,7 @@ import { UserComponent } from './components/user/user.component';
 import { AllProductsComponent } from './components/user/all-products/all-products.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { ProcessOrdersComponent } from './components/admin/process-orders/process-orders.component';
+import { DamageListComponent } from './components/admin/damage-list/damage-list.component';
 
 const routes: Routes = [
 
@@ -31,6 +32,7 @@ const routes: Routes = [
     {path:"purchase-return",component:PurchaseReturnComponent},
     {path:"orders",component:OrdersComponent},
     {path:"process-orders",component:ProcessOrdersComponent},
+    {path:"damage-list",component:DamageListComponent},
 
   ],
 },

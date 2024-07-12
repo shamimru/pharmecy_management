@@ -16,7 +16,7 @@ public class UserOrderDAO extends MySqlConnection{
 		try {
 			con=DriverManager.getConnection( url,user,pass);  
 			
-			ps= con.prepareStatement("SELECT o.order_id, o.invoice_no, c.name, c.phone, c.address, t.total FROM (SELECT invoice_no, COUNT(*) AS total FROM `order` WHERE status = ? GROUP BY invoice_no) t JOIN `order` o ON o.invoice_no = t.invoice_no JOIN customer c ON o.customerId = c.customerId WHERE o.status = ? GROUP BY o.invoice_no, c.name, c.phone, c.address, t.total ORDER BY o.invoice_no;");
+			ps= con.prepareStatement("SELECT o.order_id, o.invoice_no, c.name, c.phone, c.address,o.saleDate, t.total FROM (SELECT invoice_no, COUNT(*) AS total FROM `order` WHERE status = ? GROUP BY invoice_no) t JOIN `order` o ON o.invoice_no = t.invoice_no JOIN customer c ON o.customerId = c.customerId WHERE o.status = ? GROUP BY o.invoice_no, c.name, c.phone, c.address, t.total ORDER BY o.invoice_no;");
 //			ps.setDate(1, startDate);
 //			ps.setDate(2, endDate);
 //			ps.setString(3, s);
@@ -26,7 +26,7 @@ public class UserOrderDAO extends MySqlConnection{
 
 			rs=ps.executeQuery();
 			while(rs.next()) {
-				userOrder.add(new UserOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getInt(6)));
+				userOrder.add(new UserOrder(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getDate(6),rs.getInt(7)));
 			}
 			con.close();
 			

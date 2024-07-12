@@ -17,12 +17,17 @@ public class OrderDetails {
 	int stockId;
 	int orderId;
 	Date saleDate;
+	String status;
+	int customerId;
 	public OrderDetails() {
 		super();
 	}
 	
+	
+
 	public OrderDetails(String invoice, String medicineName, String genericName, String supplier, int qty, double rate,
-			double total, String customerName, String phone, String address, int stockId, int orderId, Date saleDate) {
+			double total, String customerName, String phone, String address, int stockId, int orderId, Date saleDate,
+			String status,int customerId) {
 		super();
 		this.invoice = invoice;
 		this.medicineName = medicineName;
@@ -37,8 +42,23 @@ public class OrderDetails {
 		this.stockId = stockId;
 		this.orderId = orderId;
 		this.saleDate = saleDate;
+		this.status = status;
+		this.customerId = customerId;
 	}
-	
+
+
+
+	public String getStatus() {
+		return status;
+	}
+
+
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+
 
 	public int getOrderId() {
 		return orderId;
@@ -122,12 +142,23 @@ public class OrderDetails {
 	public void setStockId(int stockId) {
 		this.stockId = stockId;
 	}
+	
+	public int getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(int customerId) {
+		this.customerId = customerId;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "OrderDetails [invoice=" + invoice + ", medicineName=" + medicineName + ", genericName=" + genericName
 				+ ", supplier=" + supplier + ", qty=" + qty + ", rate=" + rate + ", total=" + total + ", customerName="
 				+ customerName + ", phone=" + phone + ", address=" + address + ", stockId=" + stockId + ", orderId="
-				+ orderId + ", saleDate=" + saleDate + "]";
+				+ orderId + ", saleDate=" + saleDate + ", status=" + status + ", customerId=" + customerId + "]";
 	}
 	
 	

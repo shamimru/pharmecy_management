@@ -15,11 +15,13 @@ public class PurchaseReport {
 	int mrp;
 	double purchaseRate;
 	String invoice;
+	int purchaseId;
+	
 	public PurchaseReport() {
 		super();
 	}
 	public PurchaseReport(Date pursDate, String supplier, String medicineName, int paking, String genericName,
-			String batchId, Date exDate, int qty, int mrp, double purchaseRate, String invoice) {
+			String batchId, Date exDate, int qty, int mrp, double purchaseRate, String invoice ,int purchaseId) {
 		super();
 		this.pursDate = pursDate;
 		this.supplier = supplier;
@@ -32,6 +34,7 @@ public class PurchaseReport {
 		this.mrp = mrp;
 		this.purchaseRate = purchaseRate;
 		this.invoice = invoice;
+		this.purchaseId=purchaseId;
 	}
 	public Date getPursDate() {
 		return pursDate;
@@ -99,11 +102,19 @@ public class PurchaseReport {
 	public void setInvoice(String invoice) {
 		this.invoice = invoice;
 	}
+	
+	public int getPurchaseId() {
+		return purchaseId;
+	}
+	public void setPurchaseId(int purchaseId) {
+		this.purchaseId = purchaseId;
+	}
 	@Override
 	public String toString() {
 		return "PurchaseReport [pursDate=" + pursDate + ", supplier=" + supplier + ", medicineName=" + medicineName
 				+ ", paking=" + paking + ", genericName=" + genericName + ", batchId=" + batchId + ", exDate=" + exDate
-				+ ", qty=" + qty + ", mrp=" + mrp + ", purchaseRate=" + purchaseRate + ", invoice=" + invoice + "]";
+				+ ", qty=" + qty + ", mrp=" + mrp + ", purchaseRate=" + purchaseRate + ", invoice=" + invoice
+				+ ", purchaseId=" + purchaseId + "]";
 	}
 	
 	

@@ -1,6 +1,0 @@
-https://sazidmahmud.com/practice/wp-admin/
-
-wordpress hosting link
-
-id: 	practice
-pass: 	practice

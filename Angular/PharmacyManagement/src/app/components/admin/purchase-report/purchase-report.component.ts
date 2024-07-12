@@ -24,9 +24,9 @@ export class PurchaseReportComponent implements OnInit {
     })
 
   }
-  voucher_no:any="0";
+  voucher_no:any=null;
   
-  searchType: any="";
+  searchType: any=null;
   startDate: any;
   endDate: any;
   allStock: any = [];

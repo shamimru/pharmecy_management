@@ -16,13 +16,13 @@ export class SaleComponent implements OnInit {
 
 
     if (new Date().getDate() < 10 && new Date().getMonth() + 1 < 10) {
-      this.saleDate = new Date().getFullYear().toString() + "-" + "0" + (new Date().getMonth()+1).toString() + "-" + "0" + (new Date().getDate()).toString()
+      this.saleDate = new Date().getFullYear().toString() + "-" + "0" + (new Date().getMonth() + 1).toString() + "-" + "0" + (new Date().getDate()).toString()
     } else if (new Date().getDate() < 10) {
-      this.saleDate = new Date().getFullYear().toString() + "-" + (new Date().getMonth()+1).toString() + "-" + "0" + (new Date().getDate()).toString()
+      this.saleDate = new Date().getFullYear().toString() + "-" + (new Date().getMonth() + 1).toString() + "-" + "0" + (new Date().getDate()).toString()
     } else if (new Date().getMonth() < 10) {
-      this.saleDate = new Date().getFullYear().toString() + "-" + "0" + (new Date().getMonth()+1).toString() + "-" + (new Date().getDate()).toString()
+      this.saleDate = new Date().getFullYear().toString() + "-" + "0" + (new Date().getMonth() + 1).toString() + "-" + (new Date().getDate()).toString()
     } else {
-      this.saleDate = new Date().getFullYear().toString() + "-" + (new Date().getMonth()+1).toString() + "-" + (new Date().getDate()).toString()
+      this.saleDate = new Date().getFullYear().toString() + "-" + (new Date().getMonth() + 1).toString() + "-" + (new Date().getDate()).toString()
     }
 
 
@@ -65,11 +65,11 @@ export class SaleComponent implements OnInit {
   preSaleMedicine: any[] = [];
   preSale: any = { stockId: 7, medicineName: "Rupatadine", genericName: "Rupa", batchId: "R1560", ex_date: "2024-11-30", supplier: "Aristopharma", qty: 20, rate: 75, total: 0 };
   sales: any[] = [];
-  sale: any = { saleId: "", stockId: "", qty: "", rate: "", total: "", saleDate: "", customerId: "",invoice_no:"" };
+  sale: any = { saleId: "", stockId: "", qty: "", rate: "", total: "", saleDate: "", customerId: "", invoice_no: "" };
 
   //=======================================Add medicine List=============================================
   add(i: any) {
-   
+
     let checkId: boolean = false;
     if (this.qty != "") {
       for (let j of this.preSaleMedicine) {
@@ -191,30 +191,58 @@ export class SaleComponent implements OnInit {
     }
   }
 
-  saleOrder() {
+  // ============================================Sale Method===============================================
+  transaction: any = { transactionId: 0, transactionDate: "", invoice_no: "", purpose: "", transactionType: "", ammount: 0 };
+
+ async saleOrder() {
     alert("Sale Order run")
     if (this.name != null && this.phone != null) {
+      let transactionTotal:any=0;
       // alert("Name :"+this.name+"\n Phone:"+this.phone);
       this.newCustomer = new Customer(this.customerId, this.name, this.phone, this.email, this.address);
-      this.myservice.saveAndGetCustomer(this.newCustomer).subscribe((x) => {
+      await this.myservice.saveAndGetCustomer(this.newCustomer).subscribe((x) => {
         this.customer = x;
         for (let i = 0; i < this.sales.length; i++) {
           this.sales.at(i).customerId = this.customer.customerId;
-          alert("Customer Id=>" + this.sales.at(i).customerId)
+          transactionTotal=transactionTotal+this.sales.at(i).total;
+          alert("transactionTotal" + transactionTotal);
+          // alert("Customer Id=>" + this.sales.at(i).customerId)
         };
-        this.myservice.saveSale(this.sales).subscribe(() => {
+
+
+       this.myservice.saveSale(this.sales).subscribe((x) => {
           alert("Thank you");
-          this.sales = [];
-          this.preSaleMedicine = [];
+          // ===============Transaction start========
+          this.transaction = new Object;
+          this.transaction.transactionId = 0;
+          this.transaction.transactionDate = 0;
+          this.transaction.invoice_no = x;  //here x is invoice no return from save sale;
+          this.transaction.purpose = "Sale";
+          this.transaction.transactionType = "Credit";
+          this.transaction.ammount = transactionTotal;
+          alert("invoice "+x);
+
+          // ===============Transaction End========
+          this.myservice.saveTransaction(this.transaction).subscribe(() => {
+            alert("Transaction Save");
+            this.sales = [];
+            this.preSaleMedicine = [];
+            this.name = null;
+            this.phone = null;
+            this.email=null;
+            this.address=null;
+            this.subTotal = 0;
+            this.payment = 0;
+          });
+          
         });
+        
       });
+     
     } else {
       alert(" Insert Customer Name and Phone No")
     }
-    this.name = null;
-    this.phone = null;
-    this.subTotal = 0;
-    this.payment=0;
+   
   }
 
 }

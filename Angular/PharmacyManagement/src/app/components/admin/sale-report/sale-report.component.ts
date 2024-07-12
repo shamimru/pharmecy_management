@@ -20,7 +20,7 @@ export class SaleReportComponent implements OnInit {
     });
   }
 
-  searchType: any;
+  searchType: any=null;
   startDate: any;
   endDate: any;
   allStock: any = [];

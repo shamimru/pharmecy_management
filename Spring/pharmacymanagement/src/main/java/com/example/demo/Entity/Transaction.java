@@ -8,17 +8,19 @@ public class Transaction {
 	
 	int transactionId;
 	Date transactionDate;
+	String invoice_no;
 	String purpose;
 	String transactionType;
 	double ammount;
 	public Transaction() {
 		super();
 	}
-	public Transaction(int transactionId, Date transactionDate, String purpose, String transactionType,
+	public Transaction(int transactionId, Date transactionDate,String invoice_no, String purpose, String transactionType,
 			double ammount) {
 		super();
 		this.transactionId = transactionId;
 		this.transactionDate = transactionDate;
+		this.invoice_no = invoice_no;
 		this.purpose = purpose;
 		this.transactionType = transactionType;
 		this.ammount = ammount;
@@ -53,10 +55,18 @@ public class Transaction {
 	public void setAmmount(double ammount) {
 		this.ammount = ammount;
 	}
+	
+	public String getInvoice_no() {
+		return invoice_no;
+	}
+	public void setInvoice_no(String invoice_no) {
+		this.invoice_no = invoice_no;
+	}
 	@Override
 	public String toString() {
-		return "Transaction [transactionId=" + transactionId + ", transactionDate=" + transactionDate + ", purpose="
-				+ purpose + ", transactionType=" + transactionType + ", ammount=" + ammount + "]";
+		return "Transaction [transactionId=" + transactionId + ", transactionDate=" + transactionDate + ", invoice_no="
+				+ invoice_no + ", purpose=" + purpose + ", transactionType=" + transactionType + ", ammount=" + ammount
+				+ "]";
 	}
 	
 	

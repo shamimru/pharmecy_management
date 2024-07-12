@@ -18,6 +18,7 @@ import { UserComponent } from './components/user/user.component';
 import { AllProductsComponent } from './components/user/all-products/all-products.component';
 import { OrdersComponent } from './components/admin/orders/orders.component';
 import { ProcessOrdersComponent } from './components/admin/process-orders/process-orders.component';
+import { DamageListComponent } from './components/admin/damage-list/damage-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ProcessOrdersComponent } from './components/admin/process-orders/proces
     UserComponent,
     AllProductsComponent,
     OrdersComponent,
-    ProcessOrdersComponent
+    ProcessOrdersComponent,
+    DamageListComponent
   ],
   imports: [
     BrowserModule,

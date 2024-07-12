@@ -29,6 +29,7 @@ export class OrdersComponent implements OnInit {
   customerPhone:any;
   customerAddress:any;
   date:any;
+  payment:any;
 
   cancelOrder(orderId:any,invoiceNo:any){
     this.status="Canceled"
@@ -85,6 +86,58 @@ export class OrdersComponent implements OnInit {
 
   confirmOrder(){
     this.status="Processing"
+    for(let i of this.orderDetails){
+      this.myservice.updateOrders(i.orderId,this.status).subscribe(()=>{
+        this.showDetails(i.invoice);
+      })
+    }
+    this.status="Requested";
+    this.service="order-summery";
+    this.myservice.getOrders(this.status).subscribe((x)=>{
+      this.orderSummary=x;
+    })
+  }
+
+  sales: any[] = [];
+  sale: any = { saleId: "", stockId: "", qty: "", rate: "", total: "", saleDate: "", customerId: "",invoice_no:"" };
+  transaction:any={transactionId:0,  transactionDate:"", invoice_no:"",  purpose:"",  transactionType:"", ammount:0};
+  // "invoice": "20240711033102", "medicineName": "Rupatadine", "genericName": "Rupa", "supplier": "Aristopharma", "qty": 5, "rate": 54, "total": 270, "customerName": "Abu Hossain", "phone": "01516718442", "address": "Green Road", "stockId": 7, "orderId": 9, "saleDate": "2024-07-11", "status": "Processing", "customerId": 1 }
+  confirmSale(){
+    let transactionTotal=0;
+    let invoice_No="";
+    for(let i=0;i<this.orderDetails.length;i++){
+      this.sale=new Object;
+      this.sale.saleId="";
+      this.sale.stockId=this.orderDetails.at(i).stockId;
+      this.sale.qty=this.orderDetails.at(i).qty;
+      this.sale.rate=this.orderDetails.at(i).rate;
+      this.sale.total=this.orderDetails.at(i).total;
+      this.sale.saleDate=this.orderDetails.at(i).saleDate;
+      this.sale.customerId=this.orderDetails.at(i).customerId;
+      this.sale.invoice_no=this.orderDetails.at(i).invoice;
+      this.sales.push(this.sale);
+      transactionTotal=transactionTotal+this.orderDetails.at(i).total;
+      invoice_No=this.orderDetails.at(i).invoice;
+    }
+    // ===============Transaction start========
+    this.transaction=new Object;
+    this.transaction.transactionId=0;
+    this.transaction.transactionDate=0;
+    this.transaction.invoice_no=invoice_No;
+    this.transaction.purpose="Sale";
+    this.transaction.transactionType="Credit";
+    this.transaction.ammount=transactionTotal;
+    this.myservice.saveTransaction(this.transaction).subscribe(()=>{
+      alert("Transaction Save")
+    })
+
+    // ===============Transaction End========
+
+    this.myservice.saveSale(this.sales).subscribe(() => {
+      alert("Thank you");
+      this.sales = [];
+    });
+    this.status="Sold"
     for(let i of this.orderDetails){
       this.myservice.updateOrders(i.orderId,this.status).subscribe(()=>{
         this.showDetails(i.invoice);

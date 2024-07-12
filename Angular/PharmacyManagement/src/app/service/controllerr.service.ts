@@ -32,6 +32,32 @@ export class ControllerrService {
     this.url="http://localhost:8080/save-purchase";
     return this.http.post<any>(this.url,a);
   }
+  //==================================purchase Return=================================
+  purchaseReturn(a:any):Observable<any>{
+    this.url="http://localhost:8080/purchase-return";
+    return this.http.post<any>(this.url,a);
+  }
+  //==================================Damage=================================
+  saveDamege(a:any):Observable<any>{
+    this.url="http://localhost:8080/save-damage";
+    return this.http.post<any>(this.url,a);
+  }
+
+   //==================================getDamegeList=================================
+
+   getDamegeList(a:any):Observable<any>{
+    this.url="http://localhost:8080/get-damage";
+    return this.http.get<any>(this.url);
+  }
+
+
+
+  //==================================get all DamegeList=================================
+
+  getallDamegeList(a:any):Observable<any>{
+    this.url="http://localhost:8080/get-damage/"+a;
+    return this.http.get<any>(this.url);
+  }
 
 
 
@@ -90,14 +116,14 @@ updateOrders(id:any,status:any):Observable<any>{
 }
 
 
-//=================================Repport=============================================
+//=================================Sale Repport=============================================
 saleReport(startDate:any, endDate:any,type:any):Observable<any>{
   alert("controller")
   this.url="http://localhost:8080/sale-report/"+startDate+"/"+endDate+"/"+type;
   return this.http.get<any>(this.url);
 }
 
-//=================================Repport=============================================
+//=================================Purchase Repport=============================================
 purchaseReport(startDate:any, endDate:any,type:any,invoice:any):Observable<any>{
   alert("controller")
   this.url="http://localhost:8080/purchase-report/"+startDate+"/"+endDate+"/"+type+"/"+invoice;
@@ -111,6 +137,15 @@ purchaseReportforReturn(invoice:any):Observable<any>{
   return this.http.get<any>(this.url);
 }
 
+
+
+//====================================================Transaction Part=======================================
+
+//===========save Transaction======
+saveTransaction(t:any){
+  this.url="http://localhost:8080/save-transaction";
+  return this.http.post<any>(this.url,t);
+}
 
 
 
