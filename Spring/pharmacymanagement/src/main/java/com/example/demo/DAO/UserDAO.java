@@ -6,7 +6,11 @@ import java.sql.PreparedStatement;
 
 import com.example.demo.Entity.User;
 
+<<<<<<< HEAD
 public class UserDAO extends MysqlConnection{
+=======
+public class UserDAO {
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 	
 //	int userId;
 //	String username;
@@ -18,7 +22,12 @@ public class UserDAO extends MysqlConnection{
 	
 	public void createUser(User u) {
 		try {
+<<<<<<< HEAD
 			Connection con=DriverManager.getConnection(url,userName,password);  
+=======
+			Connection con=DriverManager.getConnection(  
+					"jdbc:mysql://localhost:3306/pharmecy","root","root");  
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			
 			PreparedStatement ps= con.prepareStatement("insert into user values (?,?,?,?,?)");
 			

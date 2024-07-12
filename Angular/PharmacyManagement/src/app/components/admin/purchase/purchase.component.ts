@@ -46,7 +46,10 @@ export class PurchaseComponent implements OnInit {
    saleRate:any;
    saleRateppcs:any;
    invoice:any
+<<<<<<< HEAD
    status:any
+=======
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
    totalpack:any;
 
@@ -72,7 +75,11 @@ export class PurchaseComponent implements OnInit {
    newPurchase(){
     this.qty=(parseInt(this.paking)*parseInt(this.totalpack));
     // alert(this.totalqty);
+<<<<<<< HEAD
     this.purchase=new Purchase(this.purshasId,this.pursDate,this.supllierId,this.medicineName,this.paking,this.genericName,this.batchId,this.exDate,this.qty,this.mrp,this.purchaseRate,this.invoice,this.status);
+=======
+    this.purchase=new Purchase(this.purshasId,this.pursDate,this.supllierId,this.medicineName,this.paking,this.genericName,this.batchId,this.exDate,this.qty,this.mrp,this.purchaseRate,this.invoice);
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
     this.allPurchase.push(this.purchase);
     this.purchaseList=new Object;
     this.purchaseList.supplierName=this.supplierName;

@@ -15,11 +15,20 @@ public class PurchaseReport {
 	int mrp;
 	double purchaseRate;
 	String invoice;
+<<<<<<< HEAD
+=======
+	int purchaseId;
+	
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 	public PurchaseReport() {
 		super();
 	}
 	public PurchaseReport(Date pursDate, String supplier, String medicineName, int paking, String genericName,
+<<<<<<< HEAD
 			String batchId, Date exDate, int qty, int mrp, double purchaseRate, String invoice) {
+=======
+			String batchId, Date exDate, int qty, int mrp, double purchaseRate, String invoice ,int purchaseId) {
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 		super();
 		this.pursDate = pursDate;
 		this.supplier = supplier;
@@ -32,6 +41,10 @@ public class PurchaseReport {
 		this.mrp = mrp;
 		this.purchaseRate = purchaseRate;
 		this.invoice = invoice;
+<<<<<<< HEAD
+=======
+		this.purchaseId=purchaseId;
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 	}
 	public Date getPursDate() {
 		return pursDate;
@@ -99,11 +112,26 @@ public class PurchaseReport {
 	public void setInvoice(String invoice) {
 		this.invoice = invoice;
 	}
+<<<<<<< HEAD
+=======
+	
+	public int getPurchaseId() {
+		return purchaseId;
+	}
+	public void setPurchaseId(int purchaseId) {
+		this.purchaseId = purchaseId;
+	}
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 	@Override
 	public String toString() {
 		return "PurchaseReport [pursDate=" + pursDate + ", supplier=" + supplier + ", medicineName=" + medicineName
 				+ ", paking=" + paking + ", genericName=" + genericName + ", batchId=" + batchId + ", exDate=" + exDate
+<<<<<<< HEAD
 				+ ", qty=" + qty + ", mrp=" + mrp + ", purchaseRate=" + purchaseRate + ", invoice=" + invoice + "]";
+=======
+				+ ", qty=" + qty + ", mrp=" + mrp + ", purchaseRate=" + purchaseRate + ", invoice=" + invoice
+				+ ", purchaseId=" + purchaseId + "]";
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 	}
 	
 	

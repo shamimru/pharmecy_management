@@ -20,7 +20,11 @@ export class SaleReportComponent implements OnInit {
     });
   }
 
+<<<<<<< HEAD
   searchType: any;
+=======
+  searchType: any=null;
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
   startDate: any;
   endDate: any;
   allStock: any = [];

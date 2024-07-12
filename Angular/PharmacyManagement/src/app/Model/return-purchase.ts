@@ -12,9 +12,14 @@ export class ReturnPurchase {
 	 qty:any
 	 mrp:any
 	 purchaseRate:any
+<<<<<<< HEAD
     currentDate:any
 
      constructor(  purchasId:any , pursDate:any, return_date:any,supllierId:any, medicineName:any,paking:any, genericName:any, batchId:any, exDate:any,qty:any,mrp:any,purchaseRate:any, currentDate:any  ){
+=======
+
+     constructor(  purchasId:any , pursDate:any, return_date:any,supllierId:any, medicineName:any,paking:any, genericName:any, batchId:any, exDate:any,qty:any,mrp:any,purchaseRate:any  ){
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
         
         this.purchasId=purchasId
         this.pursDate=pursDate
@@ -28,7 +33,10 @@ export class ReturnPurchase {
         this.qty=qty
         this.mrp=mrp
         this.purchaseRate=purchaseRate
+<<<<<<< HEAD
         this.currentDate=currentDate
+=======
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 
      }

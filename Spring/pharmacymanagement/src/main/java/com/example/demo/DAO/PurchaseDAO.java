@@ -25,9 +25,15 @@ public class PurchaseDAO {
 	public void createPurchase(List<Purchase> u) {
 		try {
 			Connection con=DriverManager.getConnection(  
+<<<<<<< HEAD
 					"jdbc:mysql://localhost:3306/pharmecy","root","01799832253aa");  
 			for(int i=0;i<u.size();i++) {
 			PreparedStatement ps= con.prepareStatement("insert into purshase values (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+=======
+					"jdbc:mysql://localhost:3306/pharmecy","root","root");  
+			for(int i=0;i<u.size();i++) {
+			PreparedStatement ps= con.prepareStatement("insert into purshase values (?,?,?,?,?,?,?,?,?,?,?,?)");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			
 			ps.setInt(1, u.get(i).getPurshasId());
 			ps.setDate(2, u.get(i).getPursDate());
@@ -41,8 +47,11 @@ public class PurchaseDAO {
 			ps.setString(10, u.get(i).getMrp());
 			ps.setDouble(11, u.get(i).getPurchaseRate());
 			ps.setString(12, u.get(i).getInvoice());
+<<<<<<< HEAD
 			ps.setString(13, u.get(i).getStatus());
 
+=======
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			ps.executeUpdate();
 			}
 			con.close();

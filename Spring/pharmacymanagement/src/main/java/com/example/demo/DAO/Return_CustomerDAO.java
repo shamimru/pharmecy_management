@@ -6,12 +6,21 @@ import java.sql.PreparedStatement;
 
 import com.example.demo.Entity.CustomerReturn;
 
+<<<<<<< HEAD
 public class Return_CustomerDAO  extends MysqlConnection {
+=======
+public class Return_CustomerDAO {
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 
 	public void returnCustomer(CustomerReturn u) {
 		try {
+<<<<<<< HEAD
 			Connection con=DriverManager.getConnection(url,userName,password);
+=======
+			Connection con=DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/pharmecy","root","root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 			PreparedStatement ps= con.prepareStatement("insert into return_customer values (?,?,?,?,?,?,?");
 

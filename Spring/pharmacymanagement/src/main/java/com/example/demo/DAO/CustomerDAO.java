@@ -19,7 +19,11 @@ public class CustomerDAO {
 
 	public void createCustomer(Customer u) {
 		try {
+<<<<<<< HEAD
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy","root","01799832253aa");
+=======
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy","root","root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 			PreparedStatement ps= con.prepareStatement("insert into customer values (?,?,?,?,?)");
 			PreparedStatement ps1= con.prepareStatement("select * from customer where phone=?");
@@ -40,7 +44,11 @@ public class CustomerDAO {
 	public Customer getCustomerByPhoneNo(String p) {
 		customer=null;
 		try {
+<<<<<<< HEAD
 			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy","root","01799832253aa");
+=======
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy","root","root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			PreparedStatement ps= con.prepareStatement("select * from customer where phone=?");
 			ps.setString(1, p);
 			

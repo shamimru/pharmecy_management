@@ -10,7 +10,11 @@ import java.util.List;
 import com.example.demo.Entity.Sale;
 import com.example.demo.Entity.Stock;
 
+<<<<<<< HEAD
 public class StockDAO extends MysqlConnection{
+=======
+public class StockDAO {
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 //	int stockId;
 //	int paking;
@@ -28,7 +32,11 @@ public class StockDAO extends MysqlConnection{
 	public void addNewStock(List<Stock> u) {
 
 		try {
+<<<<<<< HEAD
 			Connection con = DriverManager.getConnection(url,userName,password);
+=======
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy", "root", "root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			for (int i = 0; i < u.size(); i++) {
 				s = null;
 				PreparedStatement psGetdata = con.prepareStatement("select * from stock where batchId=?");
@@ -79,7 +87,11 @@ public class StockDAO extends MysqlConnection{
 	public List<Stock> getAllStockData() {
 		allStockData = new ArrayList<>();
 		try {
+<<<<<<< HEAD
 			Connection con = DriverManager.getConnection(url,userName,password);
+=======
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy", "root", "root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			PreparedStatement psGetdata = con.prepareStatement("select * from stock where qty>0 and ex_date>CURDATE()");
 			ResultSet rs = psGetdata.executeQuery();
 			while (rs.next()) {
@@ -102,7 +114,11 @@ public class StockDAO extends MysqlConnection{
 	public List<Stock> getAllStockDataByCatagory(String s) {
 		allStockDataByCatagory = new ArrayList<>();
 		try {
+<<<<<<< HEAD
 			Connection con = DriverManager.getConnection(url,userName,password);
+=======
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy", "root", "root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			PreparedStatement ps = con.prepareStatement(
 					"select * from stock where medicineName=? or genericName=? or batchId=? or supllier=?");
 			ps.setString(1, s);
@@ -134,7 +150,11 @@ public class StockDAO extends MysqlConnection{
 	public void updateSaleData(List<Sale> u) {
 
 		try {
+<<<<<<< HEAD
 			Connection con = DriverManager.getConnection(url,userName,password);
+=======
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy", "root", "root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 			for (int i = 0; i < u.size(); i++) {
 				s = null;
@@ -170,7 +190,11 @@ public class StockDAO extends MysqlConnection{
 		Stock s=null;
 		List<Stock> getStockByExDate=new ArrayList<>();
 		try {
+<<<<<<< HEAD
 			Connection con = DriverManager.getConnection(url,userName,password);
+=======
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy", "root", "root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 			PreparedStatement stm=con.prepareStatement("select * from stock where ex_date>curdate()");
 			
@@ -184,7 +208,11 @@ public class StockDAO extends MysqlConnection{
 			
 			for(int i=0; i<getStockByExDate.size();i++) {
 				try {
+<<<<<<< HEAD
 					Connection con2 = DriverManager.getConnection(url,userName,password);
+=======
+					Connection con2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy", "root", "root");
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 //					purchasId, , supllierId, medicineName, paking, genericName, batchId, exDate, qty, mrp, purchaseRate
 					PreparedStatement stm2=con.prepareStatement("insert into expired values(?,?,?,?,?,?,?,?,?)");

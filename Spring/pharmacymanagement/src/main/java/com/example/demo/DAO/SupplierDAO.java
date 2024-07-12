@@ -9,7 +9,11 @@ import java.util.List;
 
 import com.example.demo.Entity.Supplier;
 
+<<<<<<< HEAD
 public class SupplierDAO extends MysqlConnection{
+=======
+public class SupplierDAO {
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 	
 
 	int supllierId;
@@ -22,7 +26,12 @@ public class SupplierDAO extends MysqlConnection{
 	//Save supplier;
 	public void createSupplier(Supplier u) {
 		try {
+<<<<<<< HEAD
 			Connection con=DriverManager.getConnection(url,userName,password);  
+=======
+			Connection con=DriverManager.getConnection(  
+					"jdbc:mysql://localhost:3306/pharmecy","root","root");  
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			
 			PreparedStatement ps= con.prepareStatement("insert into supplier values (?,?,?,?,?,?)");
 			
@@ -49,7 +58,11 @@ public class SupplierDAO extends MysqlConnection{
 	public List<Supplier> getAllSupplier(){
 		allSupplier=new ArrayList<>();
 		try {
+<<<<<<< HEAD
 			Connection con=DriverManager.getConnection(url,userName,password);  
+=======
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/pharmecy","root","root");  
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 			
 			PreparedStatement ps= con.prepareStatement("select * from supplier");
 			ResultSet rs=ps.executeQuery();

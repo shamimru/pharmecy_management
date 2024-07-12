@@ -32,6 +32,35 @@ export class ControllerrService {
     this.url="http://localhost:8080/save-purchase";
     return this.http.post<any>(this.url,a);
   }
+<<<<<<< HEAD
+=======
+  //==================================purchase Return=================================
+  purchaseReturn(a:any):Observable<any>{
+    this.url="http://localhost:8080/purchase-return";
+    return this.http.post<any>(this.url,a);
+  }
+  //==================================Damage=================================
+  saveDamege(a:any):Observable<any>{
+    this.url="http://localhost:8080/save-damage";
+    return this.http.post<any>(this.url,a);
+  }
+
+   //==================================getDamegeList=================================
+
+   getDamegeList(a:any):Observable<any>{
+    this.url="http://localhost:8080/get-damage";
+    return this.http.get<any>(this.url);
+  }
+
+
+
+  //==================================get all DamegeList=================================
+
+  getallDamegeList(a:any):Observable<any>{
+    this.url="http://localhost:8080/get-damage/"+a;
+    return this.http.get<any>(this.url);
+  }
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 
 
@@ -65,16 +94,49 @@ saveSale(sale:any):Observable<any>{
   this.url="http://localhost:8080/save-sale";
   return this.http.post<any>(this.url,sale);
 }
+<<<<<<< HEAD
 
 
 //=================================Repport=============================================
+=======
+//==========================================Save sale order =====================================================
+saveOrder(sale:any):Observable<any>{
+  this.url="http://localhost:8080/save-order";
+  return this.http.post<any>(this.url,sale);
+}
+
+//==========================================Get orders =====================================================
+getOrders(s:any):Observable<any>{
+  this.url="http://localhost:8080/get-order/"+s;
+  return this.http.get<any>(this.url);
+}
+
+//==========================================Get orders =====================================================
+getOrderDetails(invoice:any,status:any):Observable<any>{
+  this.url="http://localhost:8080/get-order-details/"+invoice+"/"+status;
+  return this.http.get<any>(this.url);
+}
+
+//==========================================Get orders =====================================================
+updateOrders(id:any,status:any):Observable<any>{
+  this.url="http://localhost:8080/update-order/"+id+"/"+status;
+  return this.http.get<any>(this.url);
+}
+
+
+//=================================Sale Repport=============================================
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 saleReport(startDate:any, endDate:any,type:any):Observable<any>{
   alert("controller")
   this.url="http://localhost:8080/sale-report/"+startDate+"/"+endDate+"/"+type;
   return this.http.get<any>(this.url);
 }
 
+<<<<<<< HEAD
 //=================================Repport=============================================
+=======
+//=================================Purchase Repport=============================================
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 purchaseReport(startDate:any, endDate:any,type:any,invoice:any):Observable<any>{
   alert("controller")
   this.url="http://localhost:8080/purchase-report/"+startDate+"/"+endDate+"/"+type+"/"+invoice;
@@ -90,6 +152,18 @@ purchaseReportforReturn(invoice:any):Observable<any>{
 
 
 
+<<<<<<< HEAD
+=======
+//====================================================Transaction Part=======================================
+
+//===========save Transaction======
+saveTransaction(t:any){
+  this.url="http://localhost:8080/save-transaction";
+  return this.http.post<any>(this.url,t);
+}
+
+
+>>>>>>> 920099f6950d10f95b9a69d6f14d42f1d30e02d5
 
 
 
